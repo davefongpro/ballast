@@ -1,0 +1,60 @@
+{
+  "name": "ballast",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@types/papaparse": "^5.5.2",
+    "@vercel/analytics": "^2.0.1",
+    "papaparse": "^5.5.3",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.12.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.59.2",
+    "vite": "^8.0.12",
+    "vitest": "^3.2.7"
+  },
+  "description": "See the tradeoffs your prioritization framework hides. Plot ideas against measures that have no better end, and read which way your portfolio leans.",
+  "license": "MIT",
+  "author": "Dave Fong",
+  "homepage": "https://ballast.nwtnlabs.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davefongpro/ballast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davefongpro/ballast/issues"
+  },
+  "keywords": [
+    "product-management",
+    "prioritization",
+    "roadmap",
+    "tradeoffs",
+    "visualization",
+    "radar-chart",
+    "scatter-plot"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}

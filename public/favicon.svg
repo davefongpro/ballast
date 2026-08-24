@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Ballast">
+  <rect width="32" height="32" rx="7" fill="#0F1216"/>
+  <!-- A beam with two unequal weights: two ends, no better one, and it leans. -->
+  <path d="M6 12.8 L26 19.2" stroke="#E5A64B" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  <circle cx="6" cy="12.8" r="2.8" fill="#E5A64B"/>
+  <circle cx="26" cy="19.2" r="4.4" fill="#E5A64B"/>
+</svg>

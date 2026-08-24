@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0F1216" />
+    <title>Privacy — Ballast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" />
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        background: #0F1216;
+        color: #A8B0BC;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      main { max-width: 64ch; margin: 0 auto; padding: 48px 24px 96px; }
+      h1, h2 { font-family: 'Literata', Georgia, serif; color: #EDEFF3; line-height: 1.25; }
+      h1 { font-size: 30px; margin: 0 0 8px; }
+      h2 { font-size: 20px; margin: 40px 0 8px; }
+      p, li { margin: 0 0 14px; }
+      ul { padding-left: 20px; }
+      strong { color: #EDEFF3; }
+      a { color: #E5A64B; }
+      .lede { font-family: 'Literata', Georgia, serif; font-size: 19px; color: #EDEFF3; margin-bottom: 32px; }
+      .updated { font-size: 13px; color: #858D9A; }
+      .back { display: inline-block; margin-top: 40px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Privacy</h1>
+      <p class="updated">Ballast, a tool from Newton&rsquo;s First Labs. Last updated 23 August 2026.</p>
+
+      <p class="lede">
+        Your work never leaves your browser. We count page views so we know the tool is being used, and that is all.
+      </p>
+
+      <h2>What stays on your device</h2>
+      <p>
+        Everything you type. Your ideas, their names and descriptions, every score, every measure you define, your
+        benchmarks, your notes, your priorities and categories. All of it lives in your browser&rsquo;s local storage
+        so your work survives a reload. None of it is transmitted anywhere, and there is no server that could receive
+        it if it were.
+      </p>
+      <p>
+        Pasting and importing happen entirely inside the page. Exporting a CSV writes a file straight from your
+        browser. Clearing your browser&rsquo;s site data for this site erases everything, and nobody keeps a copy.
+      </p>
+
+      <h2>What is counted</h2>
+      <p>We use Vercel Web Analytics, which records:</p>
+      <ul>
+        <li>That a page was viewed, and when</li>
+        <li>Which site or link you arrived from</li>
+        <li>Country, browser and whether you are on a phone or a computer</li>
+      </ul>
+      <p>
+        It does not use cookies, does not track you across other websites, and does not build a profile of you. See
+        <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noreferrer noopener">Vercel&rsquo;s
+        analytics privacy policy</a> for their side of it.
+      </p>
+
+      <h2>What is never counted</h2>
+      <p>
+        The contents of your work. No idea name, description, note, score, measure or category is ever recorded,
+        transmitted or seen by anyone but you. This is not a policy we could change quietly: the app has no code that
+        sends your data anywhere, and <a href="https://github.com/davefongpro/ballast" target="_blank" rel="noreferrer noopener">the
+        source is public</a> so you can check.
+      </p>
+
+      <h2>No accounts</h2>
+      <p>
+        There is no sign-up, no login and no email address to give. We have no way of knowing who you are.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        Open an issue on
+        <a href="https://github.com/davefongpro/ballast/issues" target="_blank" rel="noreferrer noopener">GitHub</a>.
+      </p>
+
+      <a class="back" href="/">&larr; Back to Ballast</a>
+    </main>
+  </body>
+</html>

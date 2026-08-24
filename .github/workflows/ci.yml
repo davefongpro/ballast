@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      # Ballast ships no server and no runtime dependency beyond what the browser
+      # bundle carries, so the gate is the production tree. Build-tool advisories are
+      # reported without failing the run: they cannot reach a visitor of the site.
+      - name: Audit shipped dependencies
+        run: npm audit --omit=dev --audit-level=low
+      - name: Report build-tool advisories
+        run: npm audit --audit-level=high || true

@@ -1,0 +1,172 @@
+/* ============================================================================
+   Ballast — design tokens
+   Newton's First Labs
+
+   One dark world, deliberately. Not a theme that happens to be dark: the ground,
+   the accent and the data colours are all chosen for a dark surface, and there is
+   no light palette to keep in step. See `design.md` for the reasoning and for the
+   measured contrast ratio behind every value here.
+
+   Nothing in the app may hardcode a colour, size or spacing value. Everything
+   resolves through this file.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Ground and surfaces --------------------------------------------------
+     Not pure black. #000 leaves nowhere for a shadow to fall and no room for
+     surfaces to layer, which is why pure-black interfaces flatten out. This is a
+     deep blue-ink that lets four levels of surface read as four levels.        */
+
+  --c-sunken:        #0B0E12;
+  --c-ground:        #0F1216;
+  --c-surface:       #171B21;
+  --c-surface-2:     #1E232B;
+  --c-surface-3:     #262C35;
+
+  --c-border:        #262C35;
+  --c-border-strong: #39414E;
+
+  /* ---- Text — all measured against the ground -------------------------------
+     16.3:1 / 8.6:1 / 5.3:1                                                     */
+
+  --c-text:          #EDEFF3;
+  --c-text-2:        #A8B0BC;
+  --c-text-3:        #858D9A;
+
+  /* ---- Accent: brass ---------------------------------------------------------
+     Instrument dials and marine fittings. It carries authority without glowing,
+     and it is deliberately not the saturated cyan that every dark interface now
+     reaches for. 8.8:1 on the ground as a line or label; near-black sits on it at
+     8.7:1 when it is a button, which is the state a bright accent usually fails. */
+
+  --c-accent:        #E5A64B;
+  --c-accent-hover:  #F2B764;
+  --c-accent-ink:    #17130A;
+  --c-accent-soft:   #2A2317;
+  --c-accent-line:   #6B5626;
+
+  /* ---- Status — meaning, not ranking ---------------------------------------- */
+
+  --c-ok:            #5FBF8C;
+  --c-ok-soft:       #15251D;
+  --c-ok-line:       #2C5943;
+
+  --c-warn:          #E08A3C;
+  --c-warn-soft:     #2A1E12;
+  --c-warn-line:     #6A4520;
+
+  --c-danger:        #E86A62;
+  --c-danger-soft:   #2B1817;
+  --c-danger-line:   #6E312D;
+
+  /* ---- Priority tiers --------------------------------------------------------
+     One hue, four intensities. Priority is genuinely ordered, so an intensity
+     ramp is honest — and unlike green/amber/red it does not imply that "Later"
+     is a bad outcome. Kept clear of the brass accent so a priority chip is never
+     mistaken for a button.                                                      */
+
+  --c-now:           #82B1FF;
+  --c-next:          #6E90D6;
+  --c-later:         #7C93AD;
+  --c-not-planned:   #7A828E;
+
+  /* ---- Categorical palette for charts ----------------------------------------
+     Eight, every one at 5.6:1 or better on the ground, ordered so neighbours stay
+     separable for the most common forms of colour blindness. Used when colouring
+     by category; the priority ramp above is used when colouring by priority. The
+     two are alternatives and never appear at once.                              */
+
+  --cat-1: #6FA8FF;
+  --cat-2: #F2A65A;
+  --cat-3: #59C08D;
+  --cat-4: #D07CC7;
+  --cat-5: #E0685F;
+  --cat-6: #59BFD0;
+  --cat-7: #BFAE5C;
+  --cat-8: #8E92E8;
+
+  /* ---- Chart furniture ------------------------------------------------------- */
+
+  --c-grid:          #212730;
+  --c-axis:          #39414E;
+  --c-neutral-line:  #4A5462;   /* the midpoint rule on a bipolar axis */
+
+  /* ---- Type ------------------------------------------------------------------
+     Three roles, three families. Literata states the findings — it was drawn for
+     screen reading and its strokes stay solid on a dark ground, where a
+     high-contrast fashion serif shimmers. IBM Plex Sans runs the interface;
+     IBM Plex Mono carries every number, with tabular figures so columns line up. */
+
+  --font-display: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --t-2xs:  11px;
+  --t-xs:   12px;
+  --t-sm:   13px;
+  --t-base: 14px;
+  --t-md:   15px;
+  --t-lg:   17px;
+  --t-xl:   20px;
+  --t-2xl:  24px;
+  --t-3xl:  30px;
+
+  --lh-tight: 1.2;
+  --lh-snug:  1.35;
+  --lh-body:  1.55;
+
+  /* ---- Space — a strict 4px rhythm, no exceptions ---------------------------- */
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 28px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+
+  /* ---- Radius ---------------------------------------------------------------- */
+
+  --r-sm:   4px;
+  --r-md:   6px;
+  --r-lg:   10px;
+  --r-xl:   14px;
+  --r-pill: 999px;
+
+  /* ---- Elevation --------------------------------------------------------------
+     On a dark ground a shadow alone does almost nothing, so elevation is carried
+     by the surface step plus a one-pixel top highlight. No blur behind content:
+     backdrop filters over a several-hundred-row table cost real frames and cost
+     legibility.                                                                  */
+
+  --e-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --e-2: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --e-3: 0 18px 48px rgba(0, 0, 0, 0.65);
+  --edge-top: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* ---- Focus — one treatment everywhere -------------------------------------- */
+
+  --focus-ring: 0 0 0 2px var(--c-ground), 0 0 0 4px var(--c-accent);
+
+  /* ---- Layout ---------------------------------------------------------------- */
+
+  --page-max:  1520px;
+  --header-h:  52px;
+  --tabbar-h:  60px;   /* mobile bottom bar */
+  --measure:   68ch;
+
+  /* ---- Motion ---------------------------------------------------------------- */
+
+  --dur-fast: 110ms;
+  --dur-base: 170ms;
+  --ease: cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; }
+}

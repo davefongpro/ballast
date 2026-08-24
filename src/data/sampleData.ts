@@ -1,0 +1,347 @@
+import type { Idea, Measure, Theme, Tag } from '../types';
+
+export const sampleMeasures: Measure[] = [
+  {
+    id: 'm-impact',
+    name: 'Value',
+    type: 'directional',
+    min: 1,
+    max: 10,
+    protected: true,
+    goodEnd: 'high',
+    goodDefinition: 'How much will this improve team output or quality? 10 = transformational, 1 = marginal.',
+    benchmarks:
+      '1 = no measurable effect · 3 = nice to have, nobody would miss it · 5 = moves a secondary metric · 8 = moves a top-line metric · 10 = changes what the team can do at all'
+  },
+  {
+    id: 'm-effort',
+    name: 'Effort',
+    type: 'directional',
+    min: 1,
+    max: 10,
+    protected: true,
+    goodEnd: 'low',
+    goodDefinition: 'How much work to implement? 1 = a few hours, 10 = months of eng time.',
+    benchmarks:
+      '1 = an afternoon · 3 = a few days · 5 = one engineer for a sprint · 8 = a squad for a quarter · 10 = months, with dependencies outside the team'
+  },
+  {
+    id: 'm-ttv',
+    name: 'Time to Value',
+    type: 'directional',
+    min: 1,
+    max: 10,
+    goodEnd: 'high',
+    goodDefinition: 'How quickly do we see results after shipping? 10 = immediate, 1 = months of lag.',
+    benchmarks:
+      '1 = results a year out · 5 = results next quarter · 8 = results within a month · 10 = results the week it ships'
+  },
+  {
+    id: 'm-confidence',
+    name: 'Confidence',
+    type: 'directional',
+    min: 1,
+    max: 10,
+    goodEnd: 'high',
+    goodDefinition: 'How certain are we this will achieve its goal? 10 = proven approach, 1 = big unknown.',
+    benchmarks:
+      '1 = a hunch, no evidence · 5 = reasoning by analogy from elsewhere · 8 = evidence from our own data · 10 = we have already run the experiment'
+  },
+  {
+    id: 'm-scope',
+    name: 'Scope',
+    type: 'bipolar',
+    min: 1,
+    max: 5,
+    lowPoleLabel: 'Individual',
+    highPoleLabel: 'Team-wide',
+    benchmarks:
+      '1 = one person\'s workflow · 3 = a single squad · 5 = every team in the company'
+  },
+  {
+    id: 'm-initiative',
+    name: 'Initiative',
+    type: 'bipolar',
+    min: 1,
+    max: 5,
+    lowPoleLabel: 'Bottom-up',
+    highPoleLabel: 'Top-down',
+    benchmarks:
+      '1 = the team asked for it · 3 = raised from both directions · 5 = leadership mandated it'
+  },
+  {
+    id: 'm-type',
+    name: 'Work Type',
+    type: 'bipolar',
+    min: 1,
+    max: 5,
+    lowPoleLabel: 'Process',
+    highPoleLabel: 'Technology',
+    benchmarks:
+      '1 = purely how we work · 3 = a way of working that needs something built · 5 = purely something we build'
+  },
+  {
+    id: 'm-horizon',
+    name: 'Horizon',
+    type: 'bipolar',
+    min: 1,
+    max: 5,
+    lowPoleLabel: 'Quick fix',
+    highPoleLabel: 'Structural',
+    benchmarks:
+      '1 = relieves the symptom now · 3 = holds for about a year · 5 = removes the cause for good'
+  },
+  {
+    id: 'm-visibility',
+    name: 'Visibility',
+    type: 'bipolar',
+    min: 1,
+    max: 5,
+    lowPoleLabel: 'Internal',
+    highPoleLabel: 'Customer-facing',
+    benchmarks:
+      '1 = only we would notice · 3 = customers feel it indirectly · 5 = customers see it the day it ships'
+  },
+  {
+    id: 'm-risk',
+    name: 'Risk',
+    type: 'bipolar',
+    min: 1,
+    max: 5,
+    lowPoleLabel: 'Low-risk',
+    highPoleLabel: 'High-risk',
+    benchmarks:
+      '1 = reversible in an afternoon · 3 = awkward to unwind · 5 = hard to reverse, or it can break something live'
+  },
+];
+
+export const sampleThemes: Theme[] = [
+  { id: 'th-category', name: 'Category' },
+  { id: 'th-pillar',   name: 'Strategic Pillar' },
+  { id: 'th-funnel',   name: 'Funnel Stage' },
+];
+
+export const sampleTags: Tag[] = [
+  // Category
+  { id: 'tag-tooling',        themeId: 'th-category', label: 'Tooling',              color: '#6FA8FF' },
+  { id: 'tag-process',        themeId: 'th-category', label: 'Process',              color: '#F2A65A' },
+  { id: 'tag-culture',        themeId: 'th-category', label: 'Culture',              color: '#59C08D' },
+  { id: 'tag-infrastructure', themeId: 'th-category', label: 'Infrastructure',       color: '#E0685F' },
+  // Strategic Pillar
+  { id: 'tag-pillar-growth',     themeId: 'th-pillar', label: 'Growth',               color: '#6FA8FF' },
+  { id: 'tag-pillar-retention',  themeId: 'th-pillar', label: 'Retention',            color: '#F2A65A' },
+  { id: 'tag-pillar-platform',   themeId: 'th-pillar', label: 'Platform',             color: '#59C08D' },
+  { id: 'tag-pillar-trust',      themeId: 'th-pillar', label: 'Trust & Safety',       color: '#E0685F' },
+  { id: 'tag-pillar-devex',      themeId: 'th-pillar', label: 'Developer Experience', color: '#D07CC7' },
+  // Funnel Stage
+  { id: 'tag-funnel-acquisition', themeId: 'th-funnel', label: 'Acquisition', color: '#59BFD0' },
+  { id: 'tag-funnel-activation',  themeId: 'th-funnel', label: 'Activation',  color: '#BFAE5C' },
+  { id: 'tag-funnel-retention',   themeId: 'th-funnel', label: 'Retention',   color: '#59C08D' },
+  { id: 'tag-funnel-revenue',     themeId: 'th-funnel', label: 'Revenue',     color: '#F2A65A' },
+  { id: 'tag-funnel-referral',    themeId: 'th-funnel', label: 'Referral',    color: '#6FA8FF' },
+];
+
+export const sampleIdeas: Idea[] = [
+  {
+    id: 'i-1',
+    name: 'Standup Automation',
+    description: 'Replace live standups with an async bot that collects updates and posts a digest.',
+    comments: 'Saves ~30 min/day per team; needs buy-in.',
+    values: { 'm-impact': 4, 'm-effort': 3, 'm-ttv': 8, 'm-confidence': 7, 'm-scope': 2, 'm-initiative': 3, 'm-type': 4, 'm-horizon': 2, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-tooling', 'th-pillar': 'tag-pillar-devex', 'th-funnel': 'tag-funnel-activation' },
+    priority: 'now',
+  },
+  {
+    id: 'i-2',
+    name: 'PR Review SLA',
+    description: 'Team agreement: all PRs get a first review within 1 business day.',
+    comments: 'High-leverage, near-zero cost. Needs a short retro to align.',
+    values: { 'm-impact': 7, 'm-effort': 2, 'm-ttv': 9, 'm-confidence': 8, 'm-scope': 3, 'm-initiative': 4, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-devex', 'th-funnel': 'tag-funnel-activation' },
+    shortlisted: true,
+    priority: 'now',
+  },
+  {
+    id: 'i-3',
+    name: 'On-Call Runbook Library',
+    description: 'Write and maintain a runbook for every recurring incident type.',
+    comments: 'Reduces MTTR significantly. Start with top 5 incident types.',
+    values: { 'm-impact': 8, 'm-effort': 4, 'm-ttv': 7, 'm-confidence': 8, 'm-scope': 3, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 2, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-trust', 'th-funnel': 'tag-funnel-retention' },
+    shortlisted: true,
+    priority: 'now',
+  },
+  {
+    id: 'i-4',
+    name: 'CI/CD Pipeline Rebuild',
+    description: 'Redesign the build and deploy pipeline end-to-end for reliability and speed.',
+    comments: 'High payoff but significant risk during migration. Plan for 3 months.',
+    values: { 'm-impact': 9, 'm-effort': 9, 'm-ttv': 3, 'm-confidence': 5, 'm-scope': 5, 'm-initiative': 2, 'm-type': 5, 'm-horizon': 5, 'm-visibility': 2, 'm-risk': 4 },
+    tagsByTheme: { 'th-category': 'tag-infrastructure', 'th-pillar': 'tag-pillar-platform', 'th-funnel': 'tag-funnel-activation' },
+    priority: 'later',
+  },
+  {
+    id: 'i-5',
+    name: 'Design System Adoption',
+    description: 'Migrate all product surfaces to the shared component library.',
+    comments: 'Long-tail effort; different teams move at different speeds.',
+    values: { 'm-impact': 7, 'm-effort': 8, 'm-ttv': 3, 'm-confidence': 6, 'm-scope': 5, 'm-initiative': 3, 'm-type': 4, 'm-horizon': 4, 'm-visibility': 3, 'm-risk': 2 },
+    tagsByTheme: { 'th-category': 'tag-tooling', 'th-pillar': 'tag-pillar-devex', 'th-funnel': 'tag-funnel-activation' },
+    priority: 'next',
+  },
+  {
+    id: 'i-6',
+    name: 'Onboarding Revamp',
+    description: 'Rewrite the new-hire onboarding checklist with up-to-date docs and a buddy system.',
+    comments: 'Helps every new hire; current state is outdated and incomplete.',
+    values: { 'm-impact': 7, 'm-effort': 5, 'm-ttv': 6, 'm-confidence': 8, 'm-scope': 3, 'm-initiative': 4, 'm-type': 2, 'm-horizon': 3, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-culture', 'th-pillar': 'tag-pillar-devex', 'th-funnel': 'tag-funnel-acquisition' },
+    priority: 'now',
+  },
+  {
+    id: 'i-7',
+    name: 'Post-Mortem Template',
+    description: 'Standardize post-mortems with a blameless template and shared doc space.',
+    comments: 'Low cost, high signal. Best learning comes from repeatable practice.',
+    values: { 'm-impact': 6, 'm-effort': 2, 'm-ttv': 9, 'm-confidence': 9, 'm-scope': 3, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-trust', 'th-funnel': 'tag-funnel-retention' },
+    shortlisted: true,
+    priority: 'now',
+  },
+  {
+    id: 'i-8',
+    name: 'Feature Flag Framework',
+    description: 'Implement a feature-flagging system to decouple deploys from releases.',
+    comments: 'Enables safer rollouts and A/B testing. Needs platform investment.',
+    values: { 'm-impact': 8, 'm-effort': 7, 'm-ttv': 4, 'm-confidence': 6, 'm-scope': 5, 'm-initiative': 2, 'm-type': 5, 'm-horizon': 4, 'm-visibility': 3, 'm-risk': 3 },
+    tagsByTheme: { 'th-category': 'tag-tooling', 'th-pillar': 'tag-pillar-platform', 'th-funnel': 'tag-funnel-activation' },
+    priority: 'next',
+  },
+  {
+    id: 'i-9',
+    name: 'Knowledge Base Wiki',
+    description: 'Build and maintain an internal wiki for architecture, decisions, and how-tos.',
+    comments: 'High value long-term; needs an owner and regular gardening.',
+    values: { 'm-impact': 6, 'm-effort': 5, 'm-ttv': 6, 'm-confidence': 7, 'm-scope': 4, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 3, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-culture', 'th-pillar': 'tag-pillar-devex', 'th-funnel': 'tag-funnel-acquisition' },
+    priority: 'now',
+  },
+  {
+    id: 'i-10',
+    name: 'Pair Programming Sessions',
+    description: 'Schedule weekly optional pairing slots to spread knowledge across the team.',
+    comments: 'Low overhead. Best for onboarding and hard problems.',
+    values: { 'm-impact': 5, 'm-effort': 3, 'm-ttv': 8, 'm-confidence': 6, 'm-scope': 2, 'm-initiative': 1, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-culture', 'th-pillar': 'tag-pillar-growth', 'th-funnel': 'tag-funnel-acquisition' },
+    priority: 'now',
+  },
+  {
+    id: 'i-11',
+    name: 'Shared OKR Dashboard',
+    description: 'Build a live dashboard that tracks team OKRs and key metrics in one place.',
+    comments: 'Increases visibility and accountability. Needs buy-in from leads.',
+    values: { 'm-impact': 7, 'm-effort': 6, 'm-ttv': 5, 'm-confidence': 6, 'm-scope': 5, 'm-initiative': 4, 'm-type': 3, 'm-horizon': 3, 'm-visibility': 3, 'm-risk': 2 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-growth', 'th-funnel': 'tag-funnel-retention' },
+    priority: 'next',
+  },
+  {
+    id: 'i-12',
+    name: 'Tech Debt Sprint Allocation',
+    description: 'Reserve 20% of every sprint for tech debt reduction, tracked on a shared backlog.',
+    comments: 'Sustainable quality practice. Needs leadership alignment.',
+    values: { 'm-impact': 7, 'm-effort': 3, 'm-ttv': 7, 'm-confidence': 7, 'm-scope': 4, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 3, 'm-visibility': 2, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-platform', 'th-funnel': 'tag-funnel-retention' },
+    shortlisted: true,
+    priority: 'now',
+  },
+  {
+    id: 'i-13',
+    name: 'Error Budget Monitoring',
+    description: 'Define SLOs and track error budgets per service with automated alerts.',
+    comments: 'Requires SRE-style thinking. High long-term payoff once in place.',
+    values: { 'm-impact': 8, 'm-effort': 7, 'm-ttv': 4, 'm-confidence': 6, 'm-scope': 5, 'm-initiative': 2, 'm-type': 5, 'm-horizon': 4, 'm-visibility': 3, 'm-risk': 3 },
+    tagsByTheme: { 'th-category': 'tag-infrastructure', 'th-pillar': 'tag-pillar-trust', 'th-funnel': 'tag-funnel-retention' },
+    priority: 'next',
+  },
+  {
+    id: 'i-14',
+    name: 'Code Review Training',
+    description: 'Run a workshop on effective code review: what to look for, how to give feedback.',
+    comments: 'Cheap and fast. Most value in junior-heavy teams.',
+    values: { 'm-impact': 6, 'm-effort': 3, 'm-ttv': 7, 'm-confidence': 8, 'm-scope': 3, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-culture', 'th-pillar': 'tag-pillar-growth', 'th-funnel': 'tag-funnel-acquisition' },
+    priority: 'now',
+  },
+  {
+    id: 'i-15',
+    name: 'Async Status Updates',
+    description: 'Replace daily status meetings with a written async format in Slack or Notion.',
+    comments: 'Saves meeting overhead. Some resistance from those who prefer live sync.',
+    values: { 'm-impact': 4, 'm-effort': 2, 'm-ttv': 9, 'm-confidence': 8, 'm-scope': 4, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 1, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-devex', 'th-funnel': 'tag-funnel-activation' },
+    priority: 'now',
+  },
+  {
+    id: 'i-16',
+    name: 'Automated Regression Suite',
+    description: 'Build a comprehensive automated regression test suite covering critical paths.',
+    comments: 'High value but requires sustained investment. Start with highest-risk flows.',
+    values: { 'm-impact': 9, 'm-effort': 8, 'm-ttv': 3, 'm-confidence': 6, 'm-scope': 5, 'm-initiative': 2, 'm-type': 5, 'm-horizon': 4, 'm-visibility': 2, 'm-risk': 3 },
+    tagsByTheme: { 'th-category': 'tag-tooling', 'th-pillar': 'tag-pillar-trust', 'th-funnel': 'tag-funnel-retention' },
+    priority: 'later',
+  },
+  {
+    id: 'i-17',
+    name: 'Incident Response Playbook',
+    description: 'Document the full incident response process: detection, escalation, resolution, comms.',
+    comments: 'Critical for reliability. Reduces chaos in high-stress moments.',
+    values: { 'm-impact': 7, 'm-effort': 4, 'm-ttv': 6, 'm-confidence': 8, 'm-scope': 4, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 2, 'm-risk': 2 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-trust', 'th-funnel': 'tag-funnel-retention' },
+    priority: 'now',
+  },
+  {
+    id: 'i-18',
+    name: 'Dev Productivity Survey',
+    description: 'Run a quarterly survey to measure developer productivity and satisfaction.',
+    comments: 'Low cost. Surfaces hidden friction. Useful for prioritization.',
+    values: { 'm-impact': 5, 'm-effort': 2, 'm-ttv': 9, 'm-confidence': 9, 'm-scope': 5, 'm-initiative': 4, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 2, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-growth', 'th-funnel': 'tag-funnel-activation' },
+    priority: 'now',
+  },
+  {
+    id: 'i-19',
+    name: 'Dependency Upgrade Automation',
+    description: 'Configure automated PRs for dependency upgrades (Dependabot or Renovate).',
+    comments: 'Reduces security debt passively. Requires CI to be reliable first.',
+    values: { 'm-impact': 7, 'm-effort': 7, 'm-ttv': 4, 'm-confidence': 5, 'm-scope': 4, 'm-initiative': 2, 'm-type': 5, 'm-horizon': 4, 'm-visibility': 2, 'm-risk': 3 },
+    tagsByTheme: { 'th-category': 'tag-tooling', 'th-pillar': 'tag-pillar-platform', 'th-funnel': 'tag-funnel-retention' },
+    priority: 'next',
+  },
+  {
+    id: 'i-20',
+    name: 'Architecture Decision Records',
+    description: 'Adopt ADRs to document key architectural decisions with context and rationale.',
+    comments: 'Invaluable for onboarding and revisiting decisions. Low overhead once habitual.',
+    values: { 'm-impact': 6, 'm-effort': 3, 'm-ttv': 7, 'm-confidence': 8, 'm-scope': 5, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 3, 'm-visibility': 2, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-process', 'th-pillar': 'tag-pillar-devex', 'th-funnel': 'tag-funnel-acquisition' },
+    priority: 'now',
+  },
+  {
+    id: 'i-21',
+    name: 'Internal API Gateway',
+    description: 'Build a unified API gateway for internal service-to-service communication.',
+    comments: 'High payoff at scale but heavy investment. Not ready without service mesh work first.',
+    values: { 'm-impact': 9, 'm-effort': 10, 'm-ttv': 2, 'm-confidence': 4, 'm-scope': 5, 'm-initiative': 2, 'm-type': 5, 'm-horizon': 5, 'm-visibility': 3, 'm-risk': 5 },
+    tagsByTheme: { 'th-category': 'tag-infrastructure', 'th-pillar': 'tag-pillar-platform', 'th-funnel': 'tag-funnel-revenue' },
+    priority: 'later',
+  },
+  {
+    id: 'i-22',
+    name: 'Cross-Team Demo Days',
+    description: 'Monthly demo sessions where teams share what they shipped and lessons learned.',
+    comments: 'Builds culture and cross-team awareness. Almost zero cost.',
+    values: { 'm-impact': 5, 'm-effort': 2, 'm-ttv': 8, 'm-confidence': 9, 'm-scope': 5, 'm-initiative': 3, 'm-type': 2, 'm-horizon': 2, 'm-visibility': 3, 'm-risk': 1 },
+    tagsByTheme: { 'th-category': 'tag-culture', 'th-pillar': 'tag-pillar-growth', 'th-funnel': 'tag-funnel-referral' },
+    priority: 'next',
+  },
+];
